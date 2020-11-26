@@ -7,10 +7,10 @@ def train(data, output_dir, img_size=640, epochs=50, weights="yolov5s.pt", batch
     data_file = create_yaml_data_file(images_path, values_path, len(data["class_labels"]), data["class_labels"])
 
     os.system(f"python3 yolov5/train.py --data {data_file} --img {img_size} --epochs {epochs} --weights {weights} --batch {batch} ")
-    if os.exists("runs/train/exp/weights/best.pt"):
+    if os.path.exists("runs/train/exp/weights/best.pt"):
         os.system(f"mv runs/train/exp/weights/best.pt {output_dir}/{time.time()}.pt")
         os.removedirs("runs/train/exp")
-    elif os.exists("runs/train/exp/weights/last.pt"):
+    elif os.path.exists("runs/train/exp/weights/last.pt"):
         os.system(f"mv runs/train/exp/weights/last.pt {output_dir}/{time.time()}.pt")
         os.removedirs("runs/train/exp")
     else:

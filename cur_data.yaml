@@ -1,0 +1,6 @@
+train: easynn_current_data/images
+val: easynn_current_data/values
+
+nc: 1
+
+names: ['dohphphp']
